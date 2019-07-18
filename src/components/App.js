@@ -14,7 +14,7 @@ const find = (arr, inputValue) => {
 class App extends Component {
   state = {
     isOpen: false,
-    mess: 'CLOSE',
+    mess: 'FILTER CLOSE',
     items: [],
     // search: [],
     value: '',
