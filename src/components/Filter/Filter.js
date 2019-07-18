@@ -1,5 +1,5 @@
-/*eslint-disable */
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Filter.module.css';
 
 const Filter = ({ getSerch }) => {
@@ -14,6 +14,10 @@ const Filter = ({ getSerch }) => {
       </form>
     </>
   );
+};
+
+Filter.propTypes = {
+  getSerch: PropTypes.func.isRequired,
 };
 
 export default Filter;

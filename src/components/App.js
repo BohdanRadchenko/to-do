@@ -1,4 +1,3 @@
-/*eslint-disable*/
 import React, { Component } from 'react';
 import shortid from 'short-id';
 import Form from './Form/Form';
@@ -17,7 +16,7 @@ class App extends Component {
     isOpen: true,
     mess: 'CLOSE',
     items: [],
-    search: [],
+    // search: [],
     value: '',
   };
 
@@ -30,10 +29,9 @@ class App extends Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    const preLocal = this.state.items;
-    const localJson = JSON.stringify(preLocal);
-    localStorage.setItem('items', localJson);
+  componentDidUpdate() {
+    const { items } = this.state;
+    localStorage.setItem('items', JSON.stringify(items));
   }
 
   getPrior = (id, priority) => {
@@ -61,16 +59,13 @@ class App extends Component {
 
   getSerch = ({ value }) => {
     this.setState({
-      value: value,
+      value,
     });
-    this.setState(state => ({
-      serch: state.items.filter(el =>
-        el.title.toLowerCase().includes(value.toLowerCase()),
-      ),
-    }));
-    // return items.filter(el =>
-    //   el.title.toLowerCase().includes(value.toLowerCase()),
-    // );
+    // this.setState(state => ({
+    //   serch: state.items.filter(el =>
+    //     el.title.toLowerCase().includes(value.toLowerCase()),
+    //   ),
+    // }));
   };
 
   hendleOpen = () => {
@@ -81,11 +76,15 @@ class App extends Component {
   };
 
   render() {
-    const { items, isOpen, mess, search, value } = this.state;
+    const { items, isOpen, mess, value } = this.state;
     const findWord = find(items, value);
     return (
       <div className={styles.container}>
-        <button className={styles.button} onClick={this.hendleOpen}>
+        <button
+          type="button"
+          className={styles.button}
+          onClick={this.hendleOpen}
+        >
           {mess}
         </button>
         {isOpen && <Filter getSerch={this.getSerch} />}
