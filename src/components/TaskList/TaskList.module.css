@@ -1,0 +1,32 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  display: block;
+  width: 30%;
+  margin-right: 2%;
+  margin-bottom: 40px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid turquoise;
+}
+
+.item:last-child {
+  margin-right: 0;
+}
