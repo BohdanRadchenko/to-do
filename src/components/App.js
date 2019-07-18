@@ -13,7 +13,7 @@ const find = (arr, inputValue) => {
 
 class App extends Component {
   state = {
-    isOpen: true,
+    isOpen: false,
     mess: 'CLOSE',
     items: [],
     // search: [],
@@ -71,7 +71,7 @@ class App extends Component {
   hendleOpen = () => {
     this.setState(prevState => ({
       isOpen: !prevState.isOpen,
-      mess: prevState.isOpen ? 'OPEN' : 'CLOSE',
+      mess: prevState.isOpen ? 'FILTER OPEN' : 'FILTER CLOSE',
     }));
   };
 
